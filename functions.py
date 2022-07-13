@@ -27,8 +27,9 @@ class extractLoad:
     """
 
     def fetch_csv(self):
-        url = 'https://storage.googleapis.com/csv-etl-fyp/model/prediction/' + today_filename
+        url = 'gs://csv-etl-fyp/model/prediction/' + today_filename
         csv_df = pd.read_csv(url)
+        csv_df = csv_df.drop('Unnamed: 0', axis=1)
         return csv_df
     
     # Add datetime column - Minor Transformation
