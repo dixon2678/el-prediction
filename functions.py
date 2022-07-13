@@ -27,7 +27,7 @@ class extractLoad:
     """
 
     def fetch_csv(self):
-        url = 'gs://csv-etl-fyp/model/prediction/' + today_filename
+        url = 'https://storage.googleapis.com/csv-etl-fyp/model/prediction/' + today_filename
         csv_df = pd.read_csv(url)
         return csv_df
     
