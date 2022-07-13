@@ -29,7 +29,7 @@ class extractLoad:
     def fetch_csv(self):
         url = 'gs://csv-etl-fyp/model/prediction/' + today_filename
         csv_df = pd.read_csv(url)
-        csv_df = csv_df.drop('Unnamed: 0', axis=1)
+        csv_df = csv_df.rename(columns = {'Unnamed: 0':'Unnamed__0'})
         return csv_df
     
     # Add datetime column - Minor Transformation
@@ -58,6 +58,6 @@ class extractLoad:
 
     def load_bigquery(self, dataframe):
 
-        table_id = 'final-347314.main.gcs_mcapcsv'
+        table_id = 'final-347314.main.rss_sentiment_pred'
         client = bigquery.Client(credentials=credentials)
         client.load_table_from_dataframe(dataframe, table_id)
