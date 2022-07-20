@@ -1,2 +1,2 @@
-# binanceapi-el
-Simple EL script from Binance prices API to Google BigQuery
+# el-prediction
+Load Prediction data from Google Cloud Storage to BigQuery table
